@@ -94,7 +94,7 @@ void deletePet(struct pet * array){
 	int pos = 0;
 	printf("Select pet number to delete\n");
 	scanf(" %d", &pos);
-	if ((pos >= size + 1) || (indx <= 0)){
+	if ((pos >= size + 1) || (indx <= 0) || (pos <= 0)){
 		printf("Deletion not possible.\n");
 	}
 	else {
@@ -104,6 +104,7 @@ void deletePet(struct pet * array){
 		size--;
 		indx--;
 		array = realloc(array, size * sizeof(struct pet));
+		
 		printf("Re-allocated the array to size: %d\n", size);
 	}
 }
