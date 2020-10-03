@@ -118,6 +118,7 @@ void printPets(struct pet * array){
 	}
 	else{
 		for (int i = 0; i < indx; i++){
+			printf("Index: %d \n", i + 1);
 			printf("Animal: %s \n", array[i].animal);
 			printf("Name: %s \n", array[i].name);
 			printf("Age: %d \n", array[i].age);
