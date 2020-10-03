@@ -86,7 +86,7 @@ void insertPet(struct pet * array, int i){
 	
 	if (indx >= size){
 		size++;
-		array = realloc(array, size * sizeof(struct pet));
+		array = (struct pet *) realloc(array, size * sizeof(struct pet));
 		//printf("%ld\n", size * sizeof(struct pet));
 		printf("Re-allocated the array to size: %d\n", size);
 	}
@@ -105,7 +105,7 @@ void deletePet(struct pet * array){
 		}
 		size--;
 		indx--;
-		array = realloc(array, size * sizeof(struct pet));
+		// array = (struct pet *) realloc(array, size * sizeof(struct pet));
 		// printf("%ld\n", size * sizeof(struct pet));
 		printf("Re-allocated the array to size: %d\n", size);
 	}
