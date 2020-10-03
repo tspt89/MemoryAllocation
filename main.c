@@ -4,6 +4,7 @@
 int size, indx = 0;
 
 struct pet {
+	char header[30];
 	char animal[30];
 	char name[30];
 	int age;
@@ -70,7 +71,7 @@ int main(int argc, char const *argv[]){
 }
 
 void insertPet(struct pet * array, int i){
-
+	
 	printf("Enter animal:");
 	scanf(" %s", array[i].animal);
 
@@ -86,6 +87,7 @@ void insertPet(struct pet * array, int i){
 	if (indx >= size){
 		size++;
 		array = realloc(array, size * sizeof(struct pet));
+		//printf("%ld\n", size * sizeof(struct pet));
 		printf("Re-allocated the array to size: %d\n", size);
 	}
 }
@@ -94,7 +96,7 @@ void deletePet(struct pet * array){
 	int pos = 0;
 	printf("Select pet number to delete\n");
 	scanf(" %d", &pos);
-	if ((pos >= size + 1) || (indx <= 0) || (pos <= 0)){
+	if ((pos >= size) || (indx <= 0) || (pos <= 0)){
 		printf("Deletion not possible.\n");
 	}
 	else {
@@ -104,7 +106,7 @@ void deletePet(struct pet * array){
 		size--;
 		indx--;
 		array = realloc(array, size * sizeof(struct pet));
-		
+		// printf("%ld\n", size * sizeof(struct pet));
 		printf("Re-allocated the array to size: %d\n", size);
 	}
 }
@@ -116,7 +118,7 @@ void printPets(struct pet * array){
 	}
 	else{
 		for (int i = 0; i < indx; i++){
-			printf("Animal %d: %s \n", i+1 ,array[i].animal);
+			printf("Animal: %s \n", array[i].animal);
 			printf("Name: %s \n", array[i].name);
 			printf("Age: %d \n", array[i].age);
 			printf("\n");
